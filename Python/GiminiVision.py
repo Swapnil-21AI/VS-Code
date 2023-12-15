@@ -7,7 +7,7 @@ $ pip install google-generativeai
 from pathlib import Path
 import google.generativeai as genai
 
-genai.configure(api_key="YOUR_API_KEY")
+genai.configure(api_key="AIzaSyAv33lfmK3IlW0QK60Uewq_5IlNG5okoK8")
 
 # Set up the model
 generation_config = {
@@ -41,20 +41,20 @@ model = genai.GenerativeModel(model_name="gemini-pro-vision",
                               safety_settings=safety_settings)
 
 # Validate that an image is present
-if not (img := Path("image0.jpeg")).exists():
+if not (img := Path("photo-145604394674-561df9abf539.avif")).exists():
   raise FileNotFoundError(f"Could not find image: {img}")
 
 image_parts = [
   {
-    "mime_type": "image/jpeg",
-    "data": Path("image0.jpeg").read_bytes()
+    "mime_type": "image/jpeg/avif",
+    "data": Path("photo-145604394674-561df9abf539.avif").read_bytes()
   },
   {
-    "mime_type": "image/jpeg",
-    "data": Path("image1.jpeg").read_bytes()
+    "mime_type": "image/jpeg/avif",
+    "data": Path("photo-1612547036242-770022603e.avif").read_bytes()
   },
   {
-    "mime_type": "image/jpeg",
+    "mime_type": "image/jpeg/avif",
     "data": Path("image2.jpeg").read_bytes()
   },
 ]
