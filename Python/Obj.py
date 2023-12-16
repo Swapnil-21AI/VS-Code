@@ -10,7 +10,9 @@ $ pip install google-generativeai
 from pathlib import Path
 import google.generativeai as genai
 
-genai.configure(api_key="YOUR_API_KEY")
+import urllib.request 
+
+genai.configure(api_key="AIzaSyAv33lfmK3IlW0QK60Uewq_5IlNG5okoK8")
 
 # Set up the model
 generation_config = {
@@ -44,13 +46,13 @@ model = genai.GenerativeModel(model_name="gemini-pro-vision",
                               safety_settings=safety_settings)
 
 # Validate that an image is present
-if not (img := Path("image0.jpeg")).exists():
-  raise FileNotFoundError(f"Could not find image: {img}")
+if not (img := urllib.request.urlretrieve("https://thumbs.dreamstime.com/b/studio-photography-computers-cameras-flashes-multiple-lens-131199349.jpg")).exists():
+  raise FileNotFoundError(f"Could not find image: {img}") 
 
 image_parts = [
   {
     "mime_type": "image/jpeg",
-    "data": Path("image0.jpeg").read_bytes()
+    "data": urllib.request.urlretrieve("https://thumbs.dreamstime.com/b/studio-photography-computers-cameras-flashes-multiple-lens-131199349.jpg").read_bytes()
   },
 ]
 
