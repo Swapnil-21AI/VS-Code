@@ -1,0 +1,3 @@
+SVG stands for Scaler vector Graphics
+diff between element and attributes
+actions of form 1.getRequest() 2.postReqest()
